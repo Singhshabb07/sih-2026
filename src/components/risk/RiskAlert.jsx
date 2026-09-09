@@ -27,16 +27,13 @@ const alerts = [
 
 function RiskAlert() {
   return (
-    /* Surface Container: #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        {/* Main Section Heading: Crisp White */}
         <h2 className="text-lg font-black text-white">
           Risk Alerts & Early Warnings
         </h2>
 
-        {/* Section Subtitle: High contrast #B5BCBE */}
-        <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Important signals requiring attention before chartering decisions.
         </p>
       </div>
@@ -46,14 +43,24 @@ function RiskAlert() {
           const high = alert.level === "High";
           const medium = alert.level === "Medium";
 
+          const levelBadgeClass = high
+            ? "border-rose-500/30 bg-rose-500/15 text-rose-300"
+            : medium
+              ? "border-amber-500/30 bg-amber-500/15 text-amber-300"
+              : "border-emerald-500/30 bg-emerald-500/15 text-emerald-300";
+
+          const iconColor = high
+            ? "text-rose-400"
+            : medium
+              ? "text-amber-400"
+              : "text-emerald-400";
+
           return (
-            /* Alert Item Card: Jet Black (#111111) */
             <div
               key={alert.title}
-              className="group flex flex-col gap-4 rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-5 shadow-md transition duration-300 hover:border-[#B5BCBE] md:flex-row md:items-center"
+              className="group flex flex-col gap-4 rounded-2xl border border-orange-500/15 bg-[#070e1c] p-5 shadow-md transition-all duration-300 hover:border-orange-400/40 hover:bg-[#091428] md:flex-row md:items-center"
             >
-              {/* Icon Container */}
-              <div className="rounded-xl border border-[#4D5054] bg-[#2A2C30] p-3 text-[#B5BCBE]">
+              <div className={`rounded-xl border border-orange-500/20 bg-orange-500/10 p-3 ${iconColor}`}>
                 {high || medium ? (
                   <AlertTriangle size={20} />
                 ) : (
@@ -63,25 +70,21 @@ function RiskAlert() {
 
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3">
-                  {/* Alert Title: Crisp White */}
                   <h3 className="text-sm font-bold text-white">
                     {alert.title}
                   </h3>
 
-                  {/* Level Badge: High contrast #B5BCBE with Border */}
-                  <span className="rounded-full border border-[#4D5054] bg-[#2A2C30] px-3 py-0.5 text-xs font-black uppercase tracking-wider text-[#B5BCBE]">
+                  <span className={`rounded-full border px-3 py-0.5 text-xs font-bold uppercase tracking-wider ${levelBadgeClass}`}>
                     {alert.level}
                   </span>
                 </div>
 
-                {/* Alert Description: Light Gray #B5BCBE */}
-                <p className="mt-2 text-xs leading-5 font-medium text-[#B5BCBE]">
+                <p className="mt-2 text-xs leading-5 font-medium text-slate-300">
                   {alert.description}
                 </p>
               </div>
 
-              {/* Action Button */}
-              <button className="flex items-center gap-2 text-xs font-bold text-[#B5BCBE] transition duration-200 hover:text-white">
+              <button className="flex items-center gap-2 text-xs font-bold text-orange-400 transition duration-200 hover:text-orange-300">
                 Details
                 <ArrowRight size={14} />
               </button>

@@ -31,21 +31,17 @@ const ports = [
 
 function PortCompatibility() {
   return (
-    /* Surface Container: #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        {/* Category Badge Text: High-contrast light gray #B5BCBE */}
-        <p className="text-xs font-bold uppercase tracking-wider text-[#B5BCBE]">
+        <p className="text-xs font-bold uppercase tracking-wider text-orange-400">
           Vessel × Port Analysis
         </p>
 
-        {/* Header Title: Crisp White */}
         <h2 className="mt-1 text-xl font-black text-white">
           Port Compatibility
         </h2>
 
-        {/* Subtitle: High legibility #B5BCBE */}
-        <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Check whether the selected vessel is suitable for destination ports.
         </p>
       </div>
@@ -53,74 +49,73 @@ function PortCompatibility() {
       <div className="grid gap-4 lg:grid-cols-3">
         {ports.map((port) => {
           const restricted = port.status === "Restricted";
+          const statusColor = restricted
+            ? "text-rose-400"
+            : port.status === "Good"
+              ? "text-amber-400"
+              : "text-emerald-400";
+
+          const barGradient = restricted
+            ? "from-rose-500 to-red-600"
+            : "from-amber-400 to-orange-500";
 
           return (
-            /* Inner Card: Jet Black (#111111) */
             <div
               key={port.port}
-              className="group relative overflow-hidden rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-5 shadow-md transition duration-300 hover:border-[#B5BCBE]"
+              className="group relative overflow-hidden rounded-2xl border border-orange-500/15 bg-[#070e1c] p-5 shadow-md transition-all duration-300 hover:border-orange-400/40 hover:bg-[#091428]"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  {/* Anchor Icon Box */}
-                  <div className="rounded-xl border border-[#4D5054] bg-[#2A2C30] p-2.5 text-[#B5BCBE]">
+                  <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-2.5 text-orange-400">
                     <Anchor size={19} />
                   </div>
 
                   <div>
-                    {/* Port Name: Crisp White */}
                     <p className="font-bold text-white">{port.port}</p>
                     
-                    {/* Vessel Subtitle: High contrast #B5BCBE */}
-                    <p className="text-xs font-medium text-[#B5BCBE]">
+                    <p className="text-xs font-medium text-slate-400">
                       {port.vessel}
                     </p>
                   </div>
                 </div>
 
-                {/* Status Icon: Standard Light Gray #B5BCBE */}
                 {restricted ? (
                   <AlertTriangle
                     size={18}
-                    className="text-[#B5BCBE]"
+                    className="text-rose-400"
                   />
                 ) : (
                   <CheckCircle2
                     size={18}
-                    className="text-[#B5BCBE]"
+                    className="text-emerald-400"
                   />
                 )}
               </div>
 
               <div className="mt-6">
                 <div className="flex items-end justify-between">
-                  {/* Label: Light Gray #B5BCBE */}
-                  <span className="text-sm font-medium text-[#B5BCBE]">
+                  <span className="text-sm font-medium text-slate-300">
                     Compatibility
                   </span>
 
-                  {/* Percentage Score: Pure White */}
                   <span className="text-2xl font-black text-white">
                     {port.compatibility}%
                   </span>
                 </div>
 
-                {/* Progress Bar Track: #2A2C30 */}
-                <div className="mt-3 h-2 rounded-full bg-[#2A2C30]">
+                <div className="mt-3 h-2 rounded-full bg-slate-800">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#878C8F] to-[#B5BCBE]"
+                    className={`h-full rounded-full bg-gradient-to-r ${barGradient}`}
                     style={{ width: `${port.compatibility}%` }}
                   />
                 </div>
               </div>
 
-              {/* Status Badge: High contrast #B5BCBE */}
-              <p className="mt-4 text-xs font-black uppercase text-[#B5BCBE]">
+              <p className={`mt-4 text-xs font-black uppercase ${statusColor}`}>
                 {port.status}
               </p>
 
-              {/* Detail Reason Text: #B5BCBE for crisp readability */}
-              <p className="mt-2 text-xs leading-5 font-medium text-[#B5BCBE]">
+              <p className="mt-2 text-xs leading-5 font-medium text-slate-400">
                 {port.reason}
               </p>
             </div>

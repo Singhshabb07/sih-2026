@@ -30,23 +30,23 @@ function CostOptimization() {
   const bestOption = scenarios[2];
 
   return (
-    <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-blue-400">
+          <p className="text-xs font-bold uppercase tracking-wider text-orange-400">
             AI Cost Engine
           </p>
 
-          <h2 className="mt-1 text-xl font-semibold">
+          <h2 className="mt-1 text-xl font-black text-white">
             Cost Optimization
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm font-medium text-slate-400">
             Compare chartering strategies using forecasted market conditions.
           </p>
         </div>
 
-        <div className="hidden rounded-lg bg-blue-500/10 p-3 text-blue-400 sm:block">
+        <div className="hidden rounded-xl border border-orange-500/20 bg-orange-500/10 p-3 text-orange-400 sm:block">
           <Calculator size={22} />
         </div>
       </div>
@@ -58,40 +58,40 @@ function CostOptimization() {
           return (
             <div
               key={scenario.title}
-              className={`rounded-xl border p-5 ${
+              className={`rounded-2xl border p-5 transition-all duration-300 ${
                 isBest
-                  ? "border-blue-500/40 bg-blue-500/5"
-                  : "border-slate-800 bg-slate-950/60"
+                  ? "border-emerald-500/40 bg-[#06241b]/80 shadow-[0_0_25px_rgba(16,185,129,0.15)]"
+                  : "border-orange-500/15 bg-[#070e1c]"
               }`}
             >
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold">{scenario.title}</h3>
+                <h3 className="font-bold text-white">{scenario.title}</h3>
 
                 {isBest && (
-                  <span className="rounded-full bg-blue-500/10 px-2.5 py-1 text-xs text-blue-400">
+                  <span className="rounded-full border border-emerald-500/30 bg-emerald-500/20 px-2.5 py-1 text-xs font-bold text-emerald-400">
                     Recommended
                   </span>
                 )}
               </div>
 
-              <p className="mt-5 text-xs text-slate-500">
+              <p className="mt-5 text-xs font-semibold text-slate-400">
                 Estimated total cost
               </p>
 
-              <div className="mt-1 flex items-center gap-1">
-                <IndianRupee size={20} />
+              <div className="mt-1 flex items-center gap-1 text-white">
+                <IndianRupee size={20} className="text-orange-400" />
 
-                <span className="text-2xl font-bold">
+                <span className="text-2xl font-black text-white">
                   {(scenario.cost / 100000).toFixed(2)} L
                 </span>
               </div>
 
-              <p className="mt-3 text-xs leading-5 text-slate-500">
+              <p className="mt-3 text-xs leading-5 font-medium text-slate-300">
                 {scenario.description}
               </p>
 
               {scenario.saving > 0 && (
-                <div className="mt-5 flex items-center gap-2 text-sm text-emerald-400">
+                <div className="mt-5 flex items-center gap-2 text-sm font-bold text-emerald-400">
                   <TrendingDown size={16} />
                   Save ₹{scenario.saving.toLocaleString("en-IN")}
                 </div>
@@ -101,20 +101,20 @@ function CostOptimization() {
         })}
       </div>
 
-      <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
+      <div className="mt-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
         <div className="flex items-start gap-3">
           <CheckCircle2
             size={21}
-            className="mt-0.5 text-emerald-400"
+            className="mt-0.5 text-emerald-400 shrink-0"
           />
 
           <div>
-            <p className="font-medium">Recommended Strategy</p>
+            <p className="font-bold text-white">Recommended Strategy</p>
 
-            <p className="mt-1 text-sm leading-6 text-slate-400">
+            <p className="mt-1 text-sm leading-6 font-medium text-slate-300">
               A multiple-voyage contract provides the lowest estimated
               transportation cost, with approximately{" "}
-              <span className="font-medium text-emerald-400">
+              <span className="font-bold text-emerald-400">
                 ₹1.82 lakh
               </span>{" "}
               savings compared with the current spot-charter scenario.

@@ -12,7 +12,7 @@ function Recommendations() {
         </h1>
 
         {/* Page Subtitle: High legibility Light Gray #B5BCBE */}
-        <p className="mt-1.5 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1.5 text-sm font-medium text-slate-400">
           AI-driven recommendations for better chartering decisions.
         </p>
       </div>

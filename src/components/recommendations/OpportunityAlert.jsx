@@ -31,30 +31,25 @@ const opportunities = [
 
 function OpportunityAlert() {
   return (
-    /* Main Surface Container: #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6 flex items-start justify-between">
         <div>
-          {/* Badge Label: High contrast #B5BCBE */}
-          <div className="flex items-center gap-2 text-sm font-bold text-[#B5BCBE]">
-            <BellRing size={18} className="text-[#B5BCBE]" />
+          <div className="flex items-center gap-2 text-sm font-bold text-orange-400">
+            <BellRing size={18} className="text-orange-400" />
             AI Opportunity Alerts
           </div>
 
-          {/* Main Title: Crisp White */}
           <h2 className="mt-1 text-xl font-black text-white">
             Market Opportunities
           </h2>
 
-          {/* Subtitle Description: High legibility #B5BCBE */}
-          <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+          <p className="mt-1 text-sm font-medium text-slate-400">
             Routes where current or forecast rates may create chartering
             opportunities.
           </p>
         </div>
 
-        {/* Top Header Icon Box */}
-        <div className="rounded-xl border border-[#4D5054] bg-[#111111] p-3 text-[#B5BCBE] shadow-inner">
+        <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-3 text-orange-400 shadow-inner">
           <TrendingDown size={21} />
         </div>
       </div>
@@ -64,15 +59,25 @@ function OpportunityAlert() {
           const isHigh = opportunity.level === "High";
           const isMedium = opportunity.level === "Medium";
 
+          const tagColor = isHigh
+            ? "text-emerald-400"
+            : isMedium
+              ? "text-amber-400"
+              : "text-amber-400";
+
+          const iconColor = isHigh
+            ? "text-emerald-400 border-emerald-500/30 bg-emerald-500/10"
+            : isMedium
+              ? "text-orange-400 border-orange-500/30 bg-orange-500/10"
+              : "text-amber-400 border-amber-500/30 bg-amber-500/10";
+
           return (
-            /* Opportunity Row Item: Jet Black (#111111) */
             <div
               key={opportunity.route}
-              className="group flex flex-col gap-4 rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-4 shadow-md transition duration-300 hover:border-[#B5BCBE] lg:flex-row lg:items-center lg:justify-between"
+              className="group flex flex-col gap-4 rounded-2xl border border-orange-500/15 bg-[#070e1c] p-4 shadow-md transition-all duration-300 hover:border-orange-400/40 hover:bg-[#091428] lg:flex-row lg:items-center lg:justify-between"
             >
               <div className="flex items-start gap-3">
-                {/* Level Icon Accent Box */}
-                <div className="rounded-xl border border-[#4D5054] bg-[#2A2C30] p-2 text-[#B5BCBE]">
+                <div className={`rounded-xl border p-2 ${iconColor}`}>
                   {isHigh ? (
                     <TrendingDown size={18} />
                   ) : (
@@ -81,11 +86,9 @@ function OpportunityAlert() {
                 </div>
 
                 <div>
-                  {/* Route Title: Crisp White */}
                   <p className="font-bold text-white">{opportunity.route}</p>
 
-                  {/* Opportunity Type Tag: High-contrast #B5BCBE */}
-                  <p className="mt-1 text-xs font-semibold text-[#B5BCBE]">
+                  <p className={`mt-1 text-xs font-semibold ${tagColor}`}>
                     {opportunity.type}
                   </p>
                 </div>
@@ -93,27 +96,22 @@ function OpportunityAlert() {
 
               <div className="flex items-center justify-between gap-6 lg:justify-end">
                 <div>
-                  {/* Label: Light Gray #B5BCBE */}
-                  <p className="text-xs font-semibold text-[#B5BCBE]">Forecast Rate</p>
+                  <p className="text-xs font-semibold text-slate-400">Forecast Rate</p>
 
-                  {/* Numerical Value: Pure White */}
                   <p className="mt-1 text-sm font-black text-white">
                     {opportunity.rate}
                   </p>
                 </div>
 
                 <div>
-                  {/* Label: Light Gray #B5BCBE */}
-                  <p className="text-xs font-semibold text-[#B5BCBE]">Change</p>
+                  <p className="text-xs font-semibold text-slate-400">Change</p>
 
-                  {/* Percentage Change Metric: Pure White */}
-                  <p className="mt-1 text-sm font-black text-white">
+                  <p className={`mt-1 text-sm font-black ${isHigh || isMedium ? "text-emerald-400" : "text-rose-400"}`}>
                     {opportunity.change}
                   </p>
                 </div>
 
-                {/* Navigation Button */}
-                <button className="hidden rounded-xl border border-[#4D5054] bg-[#2A2C30] p-2.5 text-[#B5BCBE] transition duration-200 hover:border-[#B5BCBE] hover:text-white lg:block">
+                <button className="hidden rounded-xl border border-orange-500/20 bg-orange-500/10 p-2.5 text-orange-400 transition-all duration-200 hover:border-orange-400 hover:text-white lg:block">
                   <ArrowRight size={17} />
                 </button>
               </div>

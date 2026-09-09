@@ -26,10 +26,14 @@ function App() {
         <Route
           path="*"
           element={
-            <div className="min-h-screen bg-slate-950 text-white">
+            <div className="relative min-h-screen bg-[#080e1a] text-slate-100 antialiased selection:bg-orange-500 selection:text-white">
+              {/* Background ambient lighting */}
+              <div className="pointer-events-none fixed left-0 top-0 h-[600px] w-[600px] rounded-full bg-orange-500/5 blur-[130px]" />
+              <div className="pointer-events-none fixed right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-amber-500/5 blur-[130px]" />
+
               <Sidebar />
 
-              <div className="ml-64">
+              <div className="relative ml-64">
                 <Navbar />
 
                 <main className="p-6">

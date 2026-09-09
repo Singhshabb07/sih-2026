@@ -20,34 +20,31 @@ const recommendation = {
 function CharterRecommendation() {
   return (
     <div className="space-y-6">
-      {/* Main Recommendation Container: Surface #2A2C30 with subtle light border */}
-      <div className="rounded-[1.8rem] border border-[#4D5054]/80 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+      {/* Main Recommendation Container */}
+      <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            {/* Header Badge: High contrast #B5BCBE */}
-            <div className="flex items-center gap-2 text-sm font-bold text-[#B5BCBE]">
-              <ShieldCheck size={18} className="text-[#B5BCBE]" />
+            <div className="flex items-center gap-2 text-sm font-bold text-orange-400">
+              <ShieldCheck size={18} className="text-orange-400" />
               AI Chartering Recommendation
             </div>
 
-            {/* Main Action Title: Crisp White */}
             <h2 className="mt-2 text-3xl font-black text-white">
               Book a Supramax
             </h2>
 
-            {/* Subtext Description: Light Gray #B5BCBE */}
-            <p className="mt-2 font-medium text-[#B5BCBE]">
+            <p className="mt-2 font-medium text-slate-300">
               Best balance of freight cost, vessel capacity, port compatibility
               and operational risk.
             </p>
           </div>
 
           {/* Match Score Indicator */}
-          <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center rounded-full border-4 border-[#B5BCBE] bg-[#111111] shadow-inner">
+          <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center rounded-full border-4 border-orange-400 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]">
             <span className="text-2xl font-black text-white">
               {recommendation.match}%
             </span>
-            <span className="text-[10px] font-bold tracking-wider text-[#B5BCBE]">
+            <span className="text-[10px] font-bold tracking-wider text-orange-300">
               MATCH
             </span>
           </div>
@@ -82,15 +79,13 @@ function CharterRecommendation() {
       </div>
 
       {/* Recommended Strategy Section */}
-      <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+      <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
         <div className="mb-5">
-          {/* Section Title: Crisp White */}
           <h3 className="text-lg font-black text-white">
             Recommended Charter Strategy
           </h3>
           
-          {/* Subtitle: High contrast #B5BCBE */}
-          <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+          <p className="mt-1 text-sm font-medium text-slate-400">
             AI-generated strategy based on forecast, vessel and cost analysis.
           </p>
         </div>
@@ -116,17 +111,15 @@ function CharterRecommendation() {
         </div>
       </div>
 
-      {/* Recommended Action Callout: Jet Black inner card */}
-      <div className="flex items-start gap-3 rounded-2xl border border-[#4D5054] bg-[#111111] p-5 shadow-lg">
-        <CheckCircle2 className="mt-0.5 shrink-0 text-[#B5BCBE]" size={22} />
+      {/* Recommended Action Callout */}
+      <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 shadow-lg">
+        <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-400" size={22} />
 
         <div>
-          {/* Action Header: Light Gray #B5BCBE */}
-          <p className="font-bold text-[#B5BCBE]">
+          <p className="font-bold text-emerald-400">
             Recommended Action
           </p>
           
-          {/* Action Description: Crisp White */}
           <p className="mt-1 text-sm leading-6 font-medium text-white">
             Monitor the Australia → Paradip route and target a Supramax
             multiple-voyage contract during the predicted low-rate window.
@@ -139,14 +132,11 @@ function CharterRecommendation() {
 
 function Metric({ label, value }) {
   return (
-    /* Metric Box: Jet Black #111111 */
-    <div className="rounded-xl border border-[#4D5054]/80 bg-[#111111] p-4 shadow-sm">
-      {/* Label: Light Gray #B5BCBE */}
-      <p className="text-xs font-bold uppercase tracking-wider text-[#B5BCBE]">
+    <div className="rounded-xl border border-orange-500/15 bg-[#070e1c] p-4 shadow-sm">
+      <p className="text-xs font-bold uppercase tracking-wider text-orange-400">
         {label}
       </p>
 
-      {/* Metric Value: Pure White */}
       <p className="mt-1 text-base font-black text-white">{value}</p>
     </div>
   );
@@ -154,16 +144,12 @@ function Metric({ label, value }) {
 
 function Strategy({ title, value, description }) {
   return (
-    /* Strategy Box: Jet Black #111111 */
-    <div className="rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-5 shadow-md transition duration-300 hover:border-[#B5BCBE]">
-      {/* Title: Light Gray #B5BCBE */}
-      <p className="text-sm font-semibold text-[#B5BCBE]">{title}</p>
+    <div className="rounded-2xl border border-orange-500/15 bg-[#070e1c] p-5 shadow-md transition-all duration-300 hover:border-orange-400/40">
+      <p className="text-sm font-semibold text-orange-400">{title}</p>
 
-      {/* Strategy Value: Pure White */}
       <p className="mt-2 text-lg font-black text-white">{value}</p>
 
-      {/* Description: Light Gray #B5BCBE */}
-      <p className="mt-2 text-xs leading-5 font-medium text-[#B5BCBE]">
+      <p className="mt-2 text-xs leading-5 font-medium text-slate-300">
         {description}
       </p>
     </div>

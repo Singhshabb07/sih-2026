@@ -35,20 +35,20 @@ function MarketTrend() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: 0.35 }}
-      className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_40px_rgba(43,94,161,0.08)]"
+      className="rounded-3xl border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl"
     >
       <div className="mb-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-800">
+          <h2 className="text-lg font-bold text-white">
             Market Trends
           </h2>
 
-          <span className="rounded-full bg-[#5681CD]/10 px-3 py-1 text-[10px] font-bold text-[#2B5EA1]">
+          <span className="rounded-full border border-orange-500/30 bg-orange-500/15 px-3 py-1 text-[10px] font-bold text-orange-300">
             LIVE MARKET
           </span>
         </div>
 
-        <p className="mt-1 text-sm text-slate-400">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Current freight market movements
         </p>
       </div>
@@ -67,11 +67,11 @@ function MarketTrend() {
                 delay: 0.45 + index * 0.08,
               }}
               whileHover={{ x: 4 }}
-              className="group rounded-2xl border border-slate-100 bg-gradient-to-r from-slate-50 to-white p-4 transition hover:border-[#65A7BC]/40 hover:shadow-md"
+              className="group rounded-2xl border border-orange-500/15 bg-[#081222]/80 p-4 transition-all duration-300 hover:border-orange-400/40 hover:bg-[#0b172a]"
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-bold text-slate-700">
+                  <p className="truncate text-sm font-bold text-slate-200">
                     {market.name}
                   </p>
 
@@ -81,13 +81,13 @@ function MarketTrend() {
                 </div>
 
                 <div className="text-right">
-                  <p className="text-sm font-black text-slate-800">
+                  <p className="text-sm font-black text-white">
                     {market.rate}
                   </p>
 
                   <div
                     className={`mt-1 flex items-center justify-end gap-1 text-xs font-bold ${
-                      isDown ? "text-[#1C6599]" : "text-[#3F7ED7]"
+                      isDown ? "text-emerald-400" : "text-rose-400"
                     }`}
                   >
                     {isDown ? (
@@ -101,21 +101,21 @@ function MarketTrend() {
                 </div>
               </div>
 
-              <div className="mt-3 h-1 overflow-hidden rounded-full bg-slate-100">
+              <div className="mt-3 h-1 overflow-hidden rounded-full bg-slate-800">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: isDown ? "38%" : "68%" }}
                   transition={{ duration: 0.7, delay: 0.6 + index * 0.08 }}
                   className={`h-full rounded-full ${
                     isDown
-                      ? "bg-gradient-to-r from-[#65A7BC] to-[#1C6599]"
-                      : "bg-gradient-to-r from-[#5681CD] to-[#3F7ED7]"
+                      ? "bg-gradient-to-r from-amber-400 to-orange-500"
+                      : "bg-gradient-to-r from-rose-400 to-pink-600"
                   }`}
                 />
               </div>
 
               <div className="mt-2 flex items-center justify-end opacity-0 transition group-hover:opacity-100">
-                <span className="flex items-center gap-1 text-[10px] font-bold text-[#3F7ED7]">
+                <span className="flex items-center gap-1 text-[10px] font-bold text-orange-400">
                   View market
                   <ArrowRight size={11} />
                 </span>

@@ -20,16 +20,13 @@ const forecastData = [
 
 function ForecastChart() {
   return (
-    /* Card Container: Surface #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        {/* Title: Crisp White */}
         <h2 className="text-lg font-black text-white">
           30-Day Freight Rate Forecast
         </h2>
 
-        {/* Subtitle: High legibility gray #B5BCBE */}
-        <p className="mt-1 text-sm text-[#B5BCBE]">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Predicted freight rate movement over the next 30 days.
         </p>
       </div>
@@ -38,52 +35,47 @@ function ForecastChart() {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={forecastData}>
             <defs>
-              {/* Gradient Fill using Light Gray #B5BCBE transitioning into Dark Surface */}
               <linearGradient id="forecastFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#B5BCBE" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#2A2C30" stopOpacity={0} />
+                <stop offset="5%" stopColor="#f97316" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
               </linearGradient>
             </defs>
 
-            {/* Grid stroke mapped to #4D5054 */}
             <CartesianGrid
-              stroke="#4D5054"
+              stroke="#1e293b"
               strokeDasharray="3 3"
-              opacity={0.4}
+              opacity={0.6}
             />
 
-            {/* Axes & Ticks mapped to #878C8F and #B5BCBE */}
             <XAxis
               dataKey="day"
-              stroke="#4D5054"
-              tick={{ fill: "#B5BCBE", fontSize: 12 }}
+              stroke="#1e293b"
+              tick={{ fill: "#94a3b8", fontSize: 12 }}
             />
 
             <YAxis
               domain={[20, 26]}
-              stroke="#4D5054"
-              tick={{ fill: "#B5BCBE", fontSize: 12 }}
+              stroke="#1e293b"
+              tick={{ fill: "#94a3b8", fontSize: 12 }}
             />
 
-            {/* Tooltip mapped to Jet Black #111111 with #4D5054 Border */}
             <Tooltip
               contentStyle={{
-                backgroundColor: "#111111",
-                border: "1px solid #4D5054",
-                borderRadius: "12px",
+                backgroundColor: "#070e1c",
+                border: "1px solid rgba(249,115,22,0.3)",
+                borderRadius: "14px",
                 color: "#FFFFFF",
-                boxShadow: "0 10px 25px rgba(0,0,0,0.5)",
+                boxShadow: "0 14px 35px rgba(0,0,0,0.5)",
               }}
-              itemStyle={{ color: "#B5BCBE" }}
+              itemStyle={{ color: "#f97316", fontWeight: "bold" }}
               formatter={(value) => [`$${value}/MT`, "Forecast Rate"]}
             />
 
-            {/* Line stroke mapped to #B5BCBE highlight */}
             <Area
               type="monotone"
               dataKey="rate"
-              stroke="#B5BCBE"
-              strokeWidth={3}
+              stroke="#f97316"
+              strokeWidth={3.5}
               fill="url(#forecastFill)"
             />
           </AreaChart>

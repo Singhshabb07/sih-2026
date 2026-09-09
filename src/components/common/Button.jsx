@@ -6,15 +6,15 @@ function Button({
   ...props
 }) {
   const base =
-    "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition";
+    "inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 active:scale-95";
 
   const variants = {
     primary:
-      "bg-blue-600 text-white hover:bg-blue-500",
+      "bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 text-white shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:from-amber-400 hover:to-orange-500",
     secondary:
-      "border border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800",
+      "border border-orange-500/30 bg-[#0d172e]/80 text-orange-200 hover:bg-orange-950/50 hover:border-orange-400 hover:text-white backdrop-blur-md shadow-sm",
     danger:
-      "bg-red-500/10 text-red-400 hover:bg-red-500/20",
+      "bg-rose-500/15 border border-rose-500/30 text-rose-300 hover:bg-rose-500/25 shadow-sm",
   };
 
   return (

@@ -38,39 +38,32 @@ const constraints = [
 
 function PortConstraints() {
   return (
-    /* Surface Container: #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        {/* Main Title: Crisp White */}
         <h2 className="text-lg font-black text-white">
           Port Infrastructure Constraints
         </h2>
 
-        {/* Subtitle: High contrast #B5BCBE */}
-        <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Operational limits that influence vessel selection and delays.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {constraints.map((port) => (
-          /* Inner Card Container: Jet Black (#111111) */
           <div
             key={port.port}
-            className="group relative overflow-hidden rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-5 shadow-md transition duration-300 hover:border-[#B5BCBE]"
+            className="group relative overflow-hidden rounded-2xl border border-orange-500/15 bg-[#070e1c] p-5 shadow-md transition-all duration-300 hover:border-orange-400/40 hover:bg-[#091428]"
           >
-            <div className="flex items-center gap-3 border-b border-[#4D5054]/60 pb-4">
-              {/* Icon Box */}
-              <div className="rounded-xl border border-[#4D5054] bg-[#2A2C30] p-2.5 text-[#B5BCBE]">
+            <div className="flex items-center gap-3 border-b border-orange-500/15 pb-4">
+              <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-2.5 text-orange-400">
                 <Anchor size={19} />
               </div>
 
               <div>
-                {/* Port Title: Crisp White */}
                 <h3 className="font-bold text-white">{port.port}</h3>
                 
-                {/* Sub-label: High contrast #B5BCBE */}
-                <p className="text-xs font-medium text-[#B5BCBE]">
+                <p className="text-xs font-medium text-slate-400">
                   Infrastructure limits
                 </p>
               </div>
@@ -110,15 +103,12 @@ function PortConstraints() {
 
 function Constraint({ icon, label, value }) {
   return (
-    /* Sub-Metric Box: Dark Surface #2A2C30 */
-    <div className="rounded-xl border border-[#4D5054]/80 bg-[#2A2C30] p-4 shadow-sm">
-      <div className="flex items-center gap-2 text-[#878C8F]">
-        <div className="text-[#B5BCBE]">{icon}</div>
-        {/* Label: Light Gray #B5BCBE */}
-        <span className="text-xs font-semibold text-[#B5BCBE]">{label}</span>
+    <div className="rounded-xl border border-orange-500/15 bg-[#0d172e] p-4 shadow-sm">
+      <div className="flex items-center gap-2 text-slate-400">
+        <div className="text-orange-400">{icon}</div>
+        <span className="text-xs font-semibold text-slate-300">{label}</span>
       </div>
 
-      {/* Metric Value: Pure White */}
       <p className="mt-2 text-sm font-black text-white">{value}</p>
     </div>
   );

@@ -13,7 +13,7 @@ function Ports() {
         </h1>
 
         {/* Page Subtitle: High legibility Light Gray #B5BCBE */}
-        <p className="mt-1.5 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1.5 text-sm font-medium text-slate-400">
           Analyze port constraints, vessel compatibility and delay risks.
         </p>
       </div>

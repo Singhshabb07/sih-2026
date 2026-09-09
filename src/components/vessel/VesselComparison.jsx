@@ -41,11 +41,11 @@ const vessels = [
 
 function VesselComparison() {
   return (
-    <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold">Vessel Comparison</h2>
+        <h2 className="text-lg font-black text-white">Vessel Comparison</h2>
 
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Compare vessel classes for the selected voyage.
         </p>
       </div>
@@ -53,7 +53,7 @@ function VesselComparison() {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[700px] text-left">
           <thead>
-            <tr className="border-b border-slate-800 text-xs uppercase tracking-wider text-slate-500">
+            <tr className="border-b border-orange-500/20 text-xs font-bold uppercase tracking-wider text-orange-400">
               <th className="px-4 py-4">Vessel</th>
               <th className="px-4 py-4">Capacity</th>
               <th className="px-4 py-4">Rate / MT</th>
@@ -71,39 +71,39 @@ function VesselComparison() {
               return (
                 <tr
                   key={vessel.type}
-                  className="border-b border-slate-800/70 last:border-0"
+                  className="border-b border-orange-500/10 transition-colors duration-200 hover:bg-[#070e1c]/60 last:border-0"
                 >
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="rounded-lg bg-slate-800 p-2 text-slate-300">
+                      <div className="rounded-lg border border-orange-500/20 bg-orange-500/10 p-2 text-orange-400">
                         <Ship size={17} />
                       </div>
 
-                      <span className="font-medium">
+                      <span className="font-bold text-white">
                         {vessel.type}
                       </span>
                     </div>
                   </td>
 
-                  <td className="px-4 py-4 text-sm text-slate-300">
+                  <td className="px-4 py-4 text-sm font-medium text-slate-300">
                     {vessel.capacity}
                   </td>
 
-                  <td className="px-4 py-4 text-sm font-medium">
+                  <td className="px-4 py-4 text-sm font-black text-orange-300">
                     {vessel.rate}
                   </td>
 
-                  <td className="px-4 py-4 text-sm text-slate-300">
+                  <td className="px-4 py-4 text-sm font-medium text-slate-300">
                     {vessel.draft}
                   </td>
 
                   <td className="px-4 py-4">
                     <div
-                      className={`flex items-center gap-2 text-sm ${
+                      className={`flex items-center gap-2 text-sm font-semibold ${
                         restricted
-                          ? "text-red-400"
+                          ? "text-rose-400"
                           : moderate
-                          ? "text-yellow-400"
+                          ? "text-amber-400"
                           : "text-emerald-400"
                       }`}
                     >
@@ -118,7 +118,7 @@ function VesselComparison() {
                   </td>
 
                   <td className="px-4 py-4">
-                    <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-400">
+                    <span className="rounded-full border border-orange-500/30 bg-orange-500/15 px-3 py-1 text-sm font-black text-orange-300">
                       {vessel.score}%
                     </span>
                   </td>
@@ -129,8 +129,8 @@ function VesselComparison() {
         </table>
       </div>
 
-      <div className="mt-5 rounded-lg border border-slate-800 bg-slate-950/50 p-4">
-        <p className="text-xs leading-5 text-slate-500">
+      <div className="mt-5 rounded-2xl border border-orange-500/15 bg-[#070e1c] p-4">
+        <p className="text-xs leading-5 font-medium text-slate-400">
           The vessel score combines estimated freight economics,
           cargo capacity and port compatibility. A higher score indicates
           a better overall fit for the selected voyage.

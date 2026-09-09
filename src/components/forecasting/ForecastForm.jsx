@@ -29,22 +29,19 @@ function ForecastForm() {
   };
 
   return (
-    /* Surface Card: #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6 flex items-center gap-3">
         {/* Header Icon Box */}
-        <div className="rounded-xl border border-[#4D5054] bg-[#111111] p-2.5 text-[#B5BCBE]">
+        <div className="rounded-xl border border-orange-500/30 bg-orange-500/15 p-2.5 text-orange-400">
           <Ship size={20} />
         </div>
 
         <div>
-          {/* Main Title: Crisp White */}
           <h2 className="text-lg font-black text-white">
             Forecast Parameters
           </h2>
 
-          {/* Subtitle: High contrast #B5BCBE */}
-          <p className="text-sm text-[#B5BCBE]">
+          <p className="text-sm font-medium text-slate-400">
             Enter voyage details to generate a freight forecast.
           </p>
         </div>
@@ -98,23 +95,21 @@ function ForecastForm() {
           />
 
           <div>
-            {/* Input Label: High legibility #B5BCBE */}
-            <label className="mb-2 block text-sm font-medium text-[#B5BCBE]">
+            <label className="mb-2 block text-sm font-semibold text-slate-300">
               Cargo Quantity (MT)
             </label>
 
-            {/* Input Element: Background #111111, Text #FFFFFF, Focus border #B5BCBE */}
             <input
               type="number"
               name="cargoQuantity"
               value={form.cargoQuantity}
               onChange={handleChange}
-              className="w-full rounded-xl border border-[#4D5054] bg-[#111111] px-4 py-3 text-sm text-white outline-none transition focus:border-[#B5BCBE]"
+              className="w-full rounded-xl border border-orange-500/20 bg-[#070e1c] px-4 py-3 text-sm font-medium text-white outline-none transition duration-300 focus:border-orange-400 focus:shadow-[0_0_15px_rgba(249,115,22,0.25)]"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-[#B5BCBE]">
+            <label className="mb-2 block text-sm font-semibold text-slate-300">
               Contract Duration
             </label>
 
@@ -122,34 +117,31 @@ function ForecastForm() {
               name="contractDuration"
               value={form.contractDuration}
               onChange={handleChange}
-              className="w-full rounded-xl border border-[#4D5054] bg-[#111111] px-4 py-3 text-sm text-white outline-none transition focus:border-[#B5BCBE]"
+              className="w-full rounded-xl border border-orange-500/20 bg-[#070e1c] px-4 py-3 text-sm font-medium text-white outline-none transition duration-300 focus:border-orange-400 focus:shadow-[0_0_15px_rgba(249,115,22,0.25)]"
             >
-              <option value="7" className="bg-[#111111] text-white">7 Days</option>
-              <option value="15" className="bg-[#111111] text-white">15 Days</option>
-              <option value="30" className="bg-[#111111] text-white">30 Days</option>
+              <option value="7" className="bg-[#070e1c] text-white">7 Days</option>
+              <option value="15" className="bg-[#070e1c] text-white">15 Days</option>
+              <option value="30" className="bg-[#070e1c] text-white">30 Days</option>
             </select>
           </div>
         </div>
 
         <div className="mt-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          {/* Footer note: #878C8F */}
-          <p className="text-xs font-medium text-[#878C8F]">
+          <p className="text-xs font-medium text-slate-400">
             Forecast generated using prototype market data.
           </p>
 
-          {/* Primary Action Button: High Contrast #B5BCBE bg with #111111 text */}
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 rounded-xl bg-[#B5BCBE] px-6 py-3 text-sm font-bold text-[#111111] transition hover:bg-white"
+            className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition duration-300 hover:shadow-orange-500/40"
           >
             <Search size={17} />
             Generate Forecast
           </button>
         </div>
 
-        {/* Success message: #B5BCBE for dark contrast */}
         {submitted && (
-          <p className="mt-4 text-sm font-semibold text-[#B5BCBE]">
+          <p className="mt-4 text-sm font-semibold text-emerald-400">
             Forecast parameters submitted successfully.
           </p>
         )}
@@ -161,16 +153,16 @@ function ForecastForm() {
 function InputField({ label, name, value, onChange, options }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-medium text-[#B5BCBE]">{label}</label>
+      <label className="mb-2 block text-sm font-semibold text-slate-300">{label}</label>
 
       <select
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full rounded-xl border border-[#4D5054] bg-[#111111] px-4 py-3 text-sm text-white outline-none transition focus:border-[#B5BCBE]"
+        className="w-full rounded-xl border border-orange-500/20 bg-[#070e1c] px-4 py-3 text-sm font-medium text-white outline-none transition duration-300 focus:border-orange-400 focus:shadow-[0_0_15px_rgba(249,115,22,0.25)]"
       >
         {options.map((option) => (
-          <option key={option} value={option} className="bg-[#111111] text-white">
+          <option key={option} value={option} className="bg-[#070e1c] text-white">
             {option}
           </option>
         ))}

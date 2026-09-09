@@ -28,21 +28,17 @@ const delayData = [
 
 function DelayPrediction() {
   return (
-    /* Main Outer Card: Surface #2A2C30 with #4D5054 Border */
-    <div className="rounded-[1.8rem] border border-[#4D5054]/60 bg-[#2A2C30] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.5)]">
+    <div className="rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl">
       <div className="mb-6">
-        {/* Category Label: High contrast light gray #B5BCBE */}
-        <p className="text-xs font-bold uppercase tracking-wider text-[#B5BCBE]">
+        <p className="text-xs font-bold uppercase tracking-wider text-orange-400">
           Predictive Analysis
         </p>
 
-        {/* Main Title: Crisp White */}
         <h2 className="mt-1 text-xl font-black text-white">
           Port Delay Prediction
         </h2>
 
-        {/* Subtitle: Legible light gray #B5BCBE */}
-        <p className="mt-1 text-sm font-medium text-[#B5BCBE]">
+        <p className="mt-1 text-sm font-medium text-slate-400">
           Estimated vessel waiting time based on congestion and infrastructure.
         </p>
       </div>
@@ -52,44 +48,50 @@ function DelayPrediction() {
           const high = item.level === "High";
           const moderate = item.level === "Moderate";
 
+          const levelColor = high
+            ? "text-rose-400"
+            : moderate
+              ? "text-amber-400"
+              : "text-emerald-400";
+
+          const barGradient = high
+            ? "from-rose-500 to-red-600"
+            : moderate
+              ? "from-amber-400 to-orange-500"
+              : "from-emerald-400 to-amber-500";
+
           return (
-            /* Inner Card: Jet Black #111111 */
             <div
               key={item.port}
-              className="group relative overflow-hidden rounded-2xl border border-[#4D5054]/80 bg-[#111111] p-5 shadow-md transition duration-300 hover:border-[#B5BCBE]"
+              className="group relative overflow-hidden rounded-2xl border border-orange-500/15 bg-[#070e1c] p-5 shadow-md transition-all duration-300 hover:border-orange-400/40 hover:bg-[#091428]"
             >
               <div className="flex items-center justify-between">
-                {/* Port Title: White */}
                 <h3 className="font-bold text-white">{item.port}</h3>
 
-                {/* Status Icon: High visibility #B5BCBE */}
                 {high || moderate ? (
                   <AlertTriangle
                     size={18}
-                    className="text-[#B5BCBE]"
+                    className={levelColor}
                   />
                 ) : (
                   <CheckCircle2
                     size={18}
-                    className="text-[#B5BCBE]"
+                    className="text-emerald-400"
                   />
                 )}
               </div>
 
               <div className="mt-6 flex items-center gap-3">
-                {/* Icon Container */}
-                <div className="rounded-xl border border-[#4D5054] bg-[#2A2C30] p-3 text-[#B5BCBE]">
+                <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-3 text-orange-400">
                   <Clock3 size={21} />
                 </div>
 
                 <div>
-                  {/* Delay Value: White */}
                   <p className="text-2xl font-black text-white">
                     {item.delay}
                   </p>
 
-                  {/* Delay Label: Muted Gray #878C8F */}
-                  <p className="text-xs font-medium text-[#878C8F]">
+                  <p className="text-xs font-medium text-slate-400">
                     Expected delay
                   </p>
                 </div>
@@ -97,32 +99,27 @@ function DelayPrediction() {
 
               <div className="mt-6">
                 <div className="flex justify-between text-xs">
-                  {/* Metric Label: #B5BCBE */}
-                  <span className="font-medium text-[#B5BCBE]">
+                  <span className="font-medium text-slate-300">
                     Delay probability
                   </span>
 
-                  {/* Probability Value: White */}
                   <span className="font-bold text-white">
                     {item.probability}%
                   </span>
                 </div>
 
-                {/* Progress Bar Track: #2A2C30 */}
-                <div className="mt-2 h-2 rounded-full bg-[#2A2C30]">
-                  {/* Progress Bar Fill: Gradient using palette grays */}
+                <div className="mt-2 h-2 rounded-full bg-slate-800">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#878C8F] to-[#B5BCBE]"
+                    className={`h-full rounded-full bg-gradient-to-r ${barGradient}`}
                     style={{ width: `${item.probability}%` }}
                   />
                 </div>
               </div>
 
-              {/* Risk Level Output: High visibility #B5BCBE */}
               <div className="mt-5 flex items-center gap-2 text-xs">
-                <TrendingUp size={14} className="text-[#B5BCBE]" />
+                <TrendingUp size={14} className={levelColor} />
 
-                <span className="font-black text-[#B5BCBE]">
+                <span className={`font-black ${levelColor}`}>
                   {item.level.toUpperCase()} RISK
                 </span>
               </div>
@@ -131,14 +128,13 @@ function DelayPrediction() {
         })}
       </div>
 
-      {/* Operational Alert Box: Dark Surface #111111 */}
-      <div className="mt-5 rounded-2xl border border-[#4D5054] bg-[#111111] p-4">
-        <p className="text-sm font-bold text-white">
+      {/* Operational Alert Box */}
+      <div className="mt-5 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4">
+        <p className="text-sm font-bold text-rose-300">
           Operational Alert
         </p>
 
-        {/* Alert Description: Legible #B5BCBE */}
-        <p className="mt-1 text-xs leading-5 font-medium text-[#B5BCBE]">
+        <p className="mt-1 text-xs leading-5 font-medium text-slate-300">
           Dhamra currently shows the highest predicted delay risk.
           Consider additional buffer time when evaluating the charter.
         </p>

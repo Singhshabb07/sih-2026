@@ -6,14 +6,14 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: #ffffff;
-  color: #1e293b;
-
+  background-color: #080e1a;
+  color: #f8fafc;
   font-family:
     Inter,
     ui-sans-serif,
@@ -22,6 +22,8 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button,
@@ -36,27 +38,30 @@ button {
 }
 
 ::selection {
-  background: #92eeff;
-  color: #1e293b;
+  background: #f97316;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #080e1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom,
-      #30afff,
-      #92eeff,
-      #c4f7ca);
+  background: linear-gradient(to bottom, #f97316, #f59e0b, #eab308);
   border-radius: 999px;
+  border: 2px solid #080e1a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #30afff;
+  background: #f97316;
+}
+
+.loginet-glow {
+  box-shadow: 0 0 40px -10px rgba(249, 115, 22, 0.3);
 }
 

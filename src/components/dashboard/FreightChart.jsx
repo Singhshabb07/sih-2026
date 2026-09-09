@@ -29,36 +29,36 @@ function FreightChart() {
       initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="relative overflow-hidden rounded-[1.8rem] border border-[#65A7BC]/25 bg-gradient-to-br from-[#F2FAFC] via-[#E7F2FB] to-[#E9F5F0] p-6 shadow-[0_16px_45px_rgba(43,94,161,0.10)]"
+      className="relative overflow-hidden rounded-[1.8rem] border border-orange-500/20 bg-[#0d172e]/80 p-6 shadow-[0_16px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl"
     >
       {/* soft connected glow */}
-      <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br from-[#92EEFF]/30 via-[#5681CD]/10 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-orange-500/15 blur-3xl" />
 
       <div className="relative mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-lg font-black text-[#173F61]">
+            <h2 className="text-lg font-black text-white">
               Freight Rate Forecast
             </h2>
 
-            <span className="rounded-full border border-[#65A7BC]/20 bg-gradient-to-r from-[#DDF5F3] to-[#E2EEFF] px-2.5 py-1 text-[10px] font-bold text-[#2B5EA1]">
+            <span className="rounded-full border border-orange-500/30 bg-orange-500/15 px-2.5 py-1 text-[10px] font-bold text-orange-300">
               9 DAYS
             </span>
           </div>
 
-          <p className="mt-1 text-sm text-[#6C8AA2]">
+          <p className="mt-1 text-sm font-medium text-slate-400">
             Historical and predicted freight rates
           </p>
         </div>
 
-        <div className="flex items-center gap-2 rounded-2xl border border-[#65A7BC]/20 bg-gradient-to-r from-[#DFF6F1] via-[#E2F3F8] to-[#E3EBFC] px-3.5 py-2.5">
-          <div className="rounded-lg bg-gradient-to-br from-[#65A7BC] to-[#3F7ED7] p-1.5 text-[#F4FDFF]">
+        <div className="flex items-center gap-2 rounded-2xl border border-emerald-500/30 bg-emerald-500/15 px-3.5 py-2.5">
+          <div className="rounded-lg bg-emerald-500 p-1.5 text-slate-950 font-bold">
             <TrendingDown size={15} />
           </div>
 
           <div>
-            <p className="text-[10px] text-[#7190A6]">Forecast</p>
-            <p className="text-sm font-black text-[#1C6599]">-10.9%</p>
+            <p className="text-[10px] font-semibold text-emerald-400/80">Forecast</p>
+            <p className="text-sm font-black text-emerald-400">-10.9%</p>
           </div>
         </div>
       </div>
@@ -76,14 +76,14 @@ function FreightChart() {
           >
             <CartesianGrid
               strokeDasharray="4 6"
-              stroke="#B9D8E5"
+              stroke="#1e293b"
               vertical={false}
             />
 
             <XAxis
               dataKey="day"
               tick={{
-                fill: "#6C8AA2",
+                fill: "#94a3b8",
                 fontSize: 11,
               }}
               axisLine={false}
@@ -93,7 +93,7 @@ function FreightChart() {
             <YAxis
               domain={[21, 27]}
               tick={{
-                fill: "#6C8AA2",
+                fill: "#94a3b8",
                 fontSize: 11,
               }}
               axisLine={false}
@@ -103,18 +103,20 @@ function FreightChart() {
 
             <Tooltip
               cursor={{
-                stroke: "#65A7BC",
+                stroke: "#f97316",
                 strokeDasharray: "4 4",
               }}
               contentStyle={{
-                background: "linear-gradient(135deg, #EAF8FA, #E8F0FC)",
-                border: "1px solid #A9CFDF",
+                background: "#070e1c",
+                border: "1px solid rgba(249,115,22,0.3)",
                 borderRadius: "14px",
-                boxShadow: "0 14px 35px rgba(43,94,161,0.16)",
+                boxShadow: "0 14px 35px rgba(0,0,0,0.5)",
+                color: "#ffffff",
               }}
               labelStyle={{
-                color: "#5681CD",
+                color: "#f97316",
                 fontSize: 12,
+                fontWeight: "bold",
               }}
               formatter={(value) => [
                 `$${value} / MT`,
@@ -125,18 +127,18 @@ function FreightChart() {
             <Line
               type="monotone"
               dataKey="rate"
-              stroke="#2B5EA1"
-              strokeWidth={3}
+              stroke="#f97316"
+              strokeWidth={3.5}
               dot={{
-                r: 3,
-                fill: "#DFF6F1",
-                stroke: "#3F7ED7",
+                r: 4,
+                fill: "#070e1c",
+                stroke: "#f97316",
                 strokeWidth: 2,
               }}
               activeDot={{
-                r: 6,
-                fill: "#65A7BC",
-                stroke: "#EAF7FA",
+                r: 7,
+                fill: "#f59e0b",
+                stroke: "#ffffff",
                 strokeWidth: 3,
               }}
               animationDuration={1400}
@@ -146,15 +148,15 @@ function FreightChart() {
         </ResponsiveContainer>
       </div>
 
-      <div className="relative mt-5 flex items-center justify-between border-t border-[#65A7BC]/20 pt-4">
-        <span className="text-xs text-[#6C8AA2]">
+      <div className="relative mt-5 flex items-center justify-between border-t border-orange-500/15 pt-4">
+        <span className="text-xs font-medium text-slate-400">
           Current:{" "}
-          <strong className="text-[#2B5EA1]">$24.8 / MT</strong>
+          <strong className="text-orange-400 font-bold">$24.8 / MT</strong>
         </span>
 
-        <span className="text-xs text-[#6C8AA2]">
+        <span className="text-xs font-medium text-slate-400">
           Forecast:{" "}
-          <strong className="text-[#1C6599]">$22.6 / MT</strong>
+          <strong className="text-emerald-400 font-bold">$22.6 / MT</strong>
         </span>
       </div>
     </motion.div>

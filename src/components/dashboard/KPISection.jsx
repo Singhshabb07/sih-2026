@@ -16,7 +16,8 @@ const kpis = [
     label: "Market increased",
     positive: false,
     icon: TrendingUp,
-    gradient: "from-[#1C6599] via-[#3F7ED7] to-[#5681CD]",
+    gradient: "from-amber-500 via-orange-500 to-orange-600",
+    badgeBg: "bg-rose-500/15 border-rose-500/30 text-rose-300",
   },
   {
     title: "Forecast Rate",
@@ -25,7 +26,8 @@ const kpis = [
     label: "Expected decrease",
     positive: true,
     icon: TrendingDown,
-    gradient: "from-[#5681CD] via-[#65A7BC] to-[#2B5EA1]",
+    gradient: "from-amber-400 via-orange-400 to-amber-500",
+    badgeBg: "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
   },
   {
     title: "Recommended Vessel",
@@ -34,7 +36,8 @@ const kpis = [
     label: "Match confidence",
     positive: true,
     icon: Ship,
-    gradient: "from-[#2B5EA1] via-[#5681CD] to-[#3F7ED7]",
+    gradient: "from-amber-500 via-orange-500 to-orange-700",
+    badgeBg: "bg-orange-500/15 border-orange-500/30 text-orange-300",
   },
   {
     title: "Risk Level",
@@ -43,7 +46,8 @@ const kpis = [
     label: "Overall risk score",
     positive: false,
     icon: ShieldAlert,
-    gradient: "from-[#3F7ED7] via-[#5681CD] to-[#1C6599]",
+    gradient: "from-amber-400 via-orange-500 to-rose-600",
+    badgeBg: "bg-amber-500/15 border-amber-500/30 text-amber-300",
   },
 ];
 
@@ -66,27 +70,27 @@ function KPISection() {
               y: -6,
               scale: 1.01,
             }}
-            className="group relative overflow-hidden rounded-[1.6rem] border border-[#65A7BC]/25 bg-gradient-to-br from-[#F3FBFC] via-[#E8F3FB] to-[#EAF5F0] p-5 shadow-[0_14px_40px_rgba(43,94,161,0.10)] transition-shadow duration-300 hover:shadow-[0_22px_55px_rgba(43,94,161,0.18)]"
+            className="group relative overflow-hidden rounded-[1.6rem] border border-orange-500/20 bg-[#0d172e]/80 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 hover:border-orange-400/40 hover:shadow-[0_15px_40px_rgba(249,115,22,0.15)]"
           >
             {/* blended glow */}
             <div
-              className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${kpi.gradient} opacity-[0.16] blur-2xl transition duration-500 group-hover:scale-125 group-hover:opacity-[0.24]`}
+              className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${kpi.gradient} opacity-[0.2] blur-2xl transition duration-500 group-hover:scale-125 group-hover:opacity-[0.35]`}
             />
 
             <div className="relative">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5681CD]">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-orange-400">
                     {kpi.title}
                   </p>
 
-                  <p className="mt-3 text-2xl font-black tracking-tight text-[#173F61]">
+                  <p className="mt-3 text-2xl font-black tracking-tight text-white">
                     {kpi.value}
                   </p>
                 </div>
 
                 <div
-                  className={`rounded-2xl bg-gradient-to-br ${kpi.gradient} p-3 text-[#F4FDFF] shadow-[0_10px_25px_rgba(43,94,161,0.20)]`}
+                  className={`rounded-2xl bg-gradient-to-br ${kpi.gradient} p-3 text-white shadow-lg`}
                 >
                   <KpiIcon size={20} />
                 </div>
@@ -95,27 +99,23 @@ function KPISection() {
               <div className="mt-5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span
-                    className={`rounded-full border px-2.5 py-1 text-xs font-bold ${
-                      kpi.positive
-                        ? "border-[#65A7BC]/25 bg-gradient-to-r from-[#DDF6F1] to-[#E0F4FF] text-[#1C6599]"
-                        : "border-[#5681CD]/20 bg-gradient-to-r from-[#E5EEFF] to-[#E4F2F4] text-[#2B5EA1]"
-                    }`}
+                    className={`rounded-full border px-2.5 py-1 text-xs font-bold ${kpi.badgeBg}`}
                   >
                     {kpi.change}
                   </span>
 
-                  <span className="text-xs text-[#6C8AA2]">
+                  <span className="text-xs font-medium text-slate-400">
                     {kpi.label}
                   </span>
                 </div>
 
                 <ArrowUpRight
                   size={16}
-                  className="text-[#8BAEC3] transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#3F7ED7]"
+                  className="text-slate-400 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-orange-400"
                 />
               </div>
 
-              <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-gradient-to-r from-[#D7EAF1] via-[#DCE8F7] to-[#DDEEE6]">
+              <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-slate-800">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${68 + index * 7}%` }}
